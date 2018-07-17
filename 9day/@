@@ -1,0 +1,24 @@
+import pygame
+SCREEN_RECT = pygame.Rect(0, 0, 480, 700)
+class GameSprite(pygame.sprite.Sprite):#父类 大写
+    def __init__(self,image,speed=1):
+        super().__init__()#调用父类方法
+        self.image = pygame.image.load(image)
+        self.rect = self.image.get_rect()
+        self.speed = speed
+
+    def update(self):
+        self.rect.y +=self.speed
+class Background(GameSprite):
+    """游戏背景精灵"""
+    def __init__(self,is_alt = False)
+        imagename = "./images/background.png"
+        super().__init__(imageame,100)
+        if is_alt:
+            self.rect.y = -self.rect.height
+    def update(self):
+        # 1. 调用父类的方法实现
+        super().update()
+        # 2. 判断是否移出屏幕，如果移出屏幕，将图像设置到屏幕的上方
+        if self.rect.y >= SCREEN_RECT.height:
+            self.rect.y = -self.rect.height

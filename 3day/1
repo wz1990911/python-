@@ -3,17 +3,16 @@ class ren():#创建人类
         self.name = name
         self.hp = 100
     def naqiang(self,qiang):
-        self.q = qiang
+        self.qiang = qiang
     def zhuangzidan(self,danjia,zidan):
         danjia.list.append(zidan)
     def zhuangdanjia(self,qiang,danjia):
         qiang.danjia = danjia
     def kai(self,diren):
-        z= self.q.danjia.tanzidan()
-
-        z.kill(diren) 
+        zidan = self.qiang.danjia.tanzidan()
+        zidan.kill(diren) 
     def diaoxue(self,count):
-        self.hp-=count
+        self.he-=count
         print("还剩%d"%self.hp)
         if self.hp <= 0:
             print("挂了")
@@ -41,7 +40,7 @@ danjia = danjia("快速扩容",40)
 laowang.naqiang(ak47)
 laosong = ren("老宋")
 for i in range(40):
-    z = zidan("5.56",20)
-    laowang.zhuangzidan(danjia,z)
+    zidan_1 = zidan("5.56",20)
+    laowang.zhuangzidan(danjia,zidan)
 laowang.zhuangdanjia(ak47,danjia)
 laowang.kai(laosong)
