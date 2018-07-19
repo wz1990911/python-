@@ -53,7 +53,14 @@ class PlanMain():
 
     def __check_collide(self):
         """碰撞检测"""
-        pass
+        # 子弹摧毁敌机
+        pygame.sprite.groupcollide(self.hero.bullet_group,self.enemy_group, True, True)
+        # 2. 敌机撞毁英雄
+        enemies = pygame.sprite.spritecollide(self.hero, self.enemy_group, True)
+        if len(enemies) > 0:
+            self.hero.kill()
+            PlamMain.__game_over()
+
     def __update_sprites(self):
         """更新精灵组"""
         self.back_group.update()
